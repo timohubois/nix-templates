@@ -37,15 +37,18 @@ Read more about [Node.js Releases](https://nodejs.org/en/about/previous-releases
 
 ## Quick Start
 
-### New Projects
+### Quick Start with Templates
+
+Use a pre-configured template:
 
 ```bash
-# Create new project with template
 nix flake new --template github:timohubois/nix-templates#php82 ./my-project
 cd my-project && nix develop
 ```
 
-### Existing Projects
+### Custom Configuration with Library
+
+Use the library for flexible configuration:
 
 ```nix
 {
@@ -53,8 +56,9 @@ cd my-project && nix develop
 
   outputs = { templates, ... }:
     templates.lib.mkDevShells {
-      nodejs = "20";
-      php = "82";
+      nodejs = "20";        # Node.js 20
+      php = "82";           # PHP 8.2 with Composer (included by default)
+      # wp-cli = true;      # Optional: Include WP-CLI for WordPress
     };
 }
 ```
@@ -66,10 +70,40 @@ Complete working examples in [examples/](./examples/):
 - **[Single Node.js](./examples/single-nodejs/)** - Node.js 20 with HTTP server
 - **[Single PHP](./examples/single-php/)** - PHP 8.2 with Composer
 - **[Combined](./examples/combined/)** - Node.js + PHP together
+- **[PHP with WP-CLI](./examples/php-wpcli/)** - PHP 8.2 with Composer 2 and WP-CLI
 - **[Custom](./examples/custom/)** - Extended with additional tools
 
 ## Library Functions
 
-- `mkDevShells { nodejs?, php? }` - Main function for creating environments
+### `mkDevShells`
+
+Main function for creating development environments:
+
+```nix
+templates.lib.mkDevShells {
+  nodejs = null;        # "10" | "12" | "14" | "16" | "18" | "20" | "22"
+  php = null;           # "74" | "80" | "81" | "82" | "83" | "84" (includes Composer by default)
+  composer = null;      # null | "1" | "2" | false
+  wp-cli = false;       # true | false
+}
+```
+
+**Options:**
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `nodejs` | `string \| null` | `null` | Node.js version (includes npm) |
+| `php` | `string \| null` | `null` | PHP version (includes Composer by default) |
+| `composer` | `string \| false \| null` | `null` | Override Composer version: `null` = use template default (2.8.x), `"1"` = Composer 1 from nixpkgs (1.10.22 for most platforms, 1.10.27 custom for aarch64-darwin), `"2"` = explicit override to 2.8.x, `false` = remove Composer |
+| `wp-cli` | `boolean` | `false` | Include WP-CLI for WordPress development |
+
+**Composer Behavior:**
+- **PHP templates include Composer by default** - no need to specify
+- Use `composer = "1"` to override with legacy Composer 1 (from nixpkgs where available, custom derivation for aarch64-darwin)
+- Use `composer = "2"` to explicitly override with Composer 2
+- Use `composer = false` to remove Composer from environment
+
+### Other Functions
+
 - `forEachSupportedSystem` - Multi-system helper
 - `nodejsTemplates."X"` / `phpTemplates."X"` - Direct template access

@@ -18,7 +18,7 @@
       let pkgs = pkgsFor system; in {
         default = pkgs.buildEnv {
           name = "php74-env";
-          paths = [ pkgs.php74 pkgs.php74Packages.composer ];
+          paths = [ pkgs.php74 ];
         };
       }
     );
@@ -26,7 +26,10 @@
     devShells = forAllSystems (system:
       let pkgs = pkgsFor system; in {
         default = pkgs.mkShell {
-          buildInputs = [ pkgs.php74 pkgs.php74Packages.composer ];
+          buildInputs = [ 
+            pkgs.php74
+            pkgs.php74Packages.composer
+          ];
           shellHook = ''
             echo "PHP 7.4 development environment"
             php --version

@@ -18,7 +18,7 @@
       let pkgs = pkgsFor system; in {
         default = pkgs.buildEnv {
           name = "php80-env";
-          paths = [ pkgs.php80 pkgs.php80Packages.composer ];
+          paths = [ pkgs.php80 ];
         };
       }
     );
@@ -26,7 +26,10 @@
     devShells = forAllSystems (system:
       let pkgs = pkgsFor system; in {
         default = pkgs.mkShell {
-          buildInputs = [ pkgs.php80 pkgs.php80Packages.composer ];
+          buildInputs = [ 
+            pkgs.php80
+            pkgs.php80Packages.composer
+          ];
           shellHook = ''
             echo "PHP 8.0 development environment"
             php --version

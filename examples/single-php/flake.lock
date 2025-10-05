@@ -2,48 +2,32 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1759580034,
-        "narHash": "sha256-YWo57PL7mGZU7D4WeKFMiW4ex/O6ZolUS6UNBHTZfkI=",
+        "lastModified": 1659914493,
+        "narHash": "sha256-lkA5X3VNMKirvA+SUzvEhfA7XquWLci+CGi505YFAIs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3bcc93c5f7a4b30335d31f21e2f1281cba68c318",
+        "rev": "022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-composer1": {
-      "locked": {
-        "lastModified": 1635350005,
-        "narHash": "sha256-tAMJnUwfaDEB2aa31jGcu7R7bzGELM9noc91L2PbVjg=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1c1f5649bb9c1b0d98637c8c365228f57126f361",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-20.09",
+        "ref": "nixos-21.05",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1704290814,
-        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
+        "lastModified": 1755704039,
+        "narHash": "sha256-gKlP0LbyJ3qX0KObfIWcp5nbuHSb5EHwIvU6UcNBg2A=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
+        "rev": "9cb344e96d5b6918e94e1bca2d9f3ea1e9615545",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-23.05",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -96,34 +80,18 @@
         "type": "github"
       }
     },
-    "nixpkgs_14": {
-      "locked": {
-        "lastModified": 1755704039,
-        "narHash": "sha256-gKlP0LbyJ3qX0KObfIWcp5nbuHSb5EHwIvU6UcNBg2A=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9cb344e96d5b6918e94e1bca2d9f3ea1e9615545",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1659914493,
-        "narHash": "sha256-lkA5X3VNMKirvA+SUzvEhfA7XquWLci+CGi505YFAIs=",
+        "lastModified": 1685573264,
+        "narHash": "sha256-Zffu01pONhs/pqH07cjlF10NnMDLok8ix5Uk4rhOnZQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf",
+        "rev": "380be19fbd2d9079f677978361792cb25e8a3635",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-21.05",
+        "ref": "nixos-22.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -146,22 +114,6 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1685573264,
-        "narHash": "sha256-Zffu01pONhs/pqH07cjlF10NnMDLok8ix5Uk4rhOnZQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "380be19fbd2d9079f677978361792cb25e8a3635",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-22.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
         "lastModified": 1704290814,
         "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
         "owner": "NixOS",
@@ -176,7 +128,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1751274312,
         "narHash": "sha256-/bVBlRpECLVzjV19t5KMdMFWSwKLtb5RyXdjz3LJT+g=",
@@ -188,6 +140,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1755704039,
+        "narHash": "sha256-gKlP0LbyJ3qX0KObfIWcp5nbuHSb5EHwIvU6UcNBg2A=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9cb344e96d5b6918e94e1bca2d9f3ea1e9615545",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -210,22 +178,6 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1755704039,
-        "narHash": "sha256-gKlP0LbyJ3qX0KObfIWcp5nbuHSb5EHwIvU6UcNBg2A=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9cb344e96d5b6918e94e1bca2d9f3ea1e9615545",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_9": {
-      "locked": {
         "lastModified": 1659446231,
         "narHash": "sha256-hekabNdTdgR/iLsgce5TGWmfIDZ86qjPhxDg/8TlzhE=",
         "owner": "NixOS",
@@ -240,205 +192,224 @@
         "type": "github"
       }
     },
+    "nixpkgs_9": {
+      "locked": {
+        "lastModified": 1704290814,
+        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nodejs-10-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-LkIFqW/9A1B9huZv6Gsd7h+YBEruOK2z0h3MGevpqAo=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_10",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_10",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_10",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_10",
         "type": "path"
       }
     },
     "nodejs-12-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-uVw2OWp7M+A3AkMExR5NsOxrg6k4BlkZAAqcKeUBPW0=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_12",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_12",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_12",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_12",
         "type": "path"
       }
     },
     "nodejs-14-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-AHxGlr4j7eycvoO+RsaDLWtTYNJQMXza77aBA8kKNpU=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_14",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_14",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_14",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_14",
         "type": "path"
       }
     },
     "nodejs-16-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-kVKjV7dDeu4co6Ko/Efggr5UI1n9blM7RuaiOZLJNYU=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_16",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_16",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_16",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_16",
         "type": "path"
       }
     },
     "nodejs-18-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-QtvxYpq7PLbKybvfJct9tj25aKoDOFY1ay685rpCdBs=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_18",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_18",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_18",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_18",
         "type": "path"
       }
     },
     "nodejs-20-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-lNGFoS0Ki92XXGjNWZ9Oc9OTrf2X+IiRdLFnBNBKezQ=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_20",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_20",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_20",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_20",
         "type": "path"
       }
     },
     "nodejs-22-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-627xKNObTy+PyPSu9wruxFUjqsTKELfV59RyMNQO0eI=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_22",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_22",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/nodejs/nodejs_22",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/nodejs/nodejs_22",
         "type": "path"
       }
     },
     "php74-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_9"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-MV7rHNL0Ics94Hu7/+vz8holPVlZLik74zC6ck3KVDY=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php74",
+        "narHash": "sha256-NP4PKmTEqEL6iPgLucITO5Ahx3T2bh3qEQMD1L4qBe8=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php74",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php74",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php74",
         "type": "path"
       }
     },
     "php80-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_10"
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-QyX7wZvNFiFkSlam3e14KHpVNDNd6taFR+nrtnfoFH8=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php80",
+        "narHash": "sha256-VkL4w4Xq6JTe7OzXAF5iT41KirBqGQok+TlrDGQ7bHk=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php80",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php80",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php80",
         "type": "path"
       }
     },
     "php81-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_11"
+        "nixpkgs": "nixpkgs_10"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-uDgbXtDcENKGL422xkAA7sPBoYDrZnyCvBbk+RFnPUM=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php81",
+        "narHash": "sha256-plleO+VUPSIZmFbvHXwcrlsiOCmGbT0eKbnQo5feDnE=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php81",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php81",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php81",
         "type": "path"
       }
     },
     "php82-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_12"
+        "nixpkgs": "nixpkgs_11"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-s7qPT4iFhHcxwlErgE/pVji/I8ahR1OUaLPZxNmjEPU=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php82",
+        "narHash": "sha256-JBUTR4GTr4VmlDnEGAw8s/JA8ZfUIW8Hj/+Ig+Sbn1U=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php82",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php82",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php82",
         "type": "path"
       }
     },
     "php83-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_13"
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-0vcJwj6C/o7SGWhbaahBpoSA1qRti1EtDcOeCSstwZw=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php83",
+        "narHash": "sha256-jGpXqF0ZWmmmT+iaQoGkq07vli0kCKPFBaQofjEEvpw=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php83",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php83",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php83",
         "type": "path"
       }
     },
     "php84-template": {
       "inputs": {
-        "nixpkgs": "nixpkgs_14"
+        "nixpkgs": "nixpkgs_13"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ksA5J9UA2j6f2KOlAe+NVDyRXfMJ5kMfY+7zYuglPnU=",
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php84",
+        "narHash": "sha256-OjYEt3QOIIL8/4F58HaAbwDikILsRRN1RoWLFJppJa8=",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php84",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/imw14l7chyvh595zjxsk4frxb6c1xqsp-source/php/php84",
+        "path": "/nix/store/gw65wrp53y3gjddmgw97djrn837jddip-source/php/php84",
         "type": "path"
       }
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-composer1": "nixpkgs-composer1",
+        "templates": "templates"
+      }
+    },
+    "templates": {
+      "inputs": {
         "nodejs-10-template": "nodejs-10-template",
         "nodejs-12-template": "nodejs-12-template",
         "nodejs-14-template": "nodejs-14-template",
@@ -452,6 +423,19 @@
         "php82-template": "php82-template",
         "php83-template": "php83-template",
         "php84-template": "php84-template"
+      },
+      "locked": {
+        "lastModified": 1755908324,
+        "narHash": "sha256-z0bJfz6CZ1uBUMZeQt9SzvZhZE3vm3DmubtCB7I6H9M=",
+        "owner": "timohubois",
+        "repo": "nix-templates",
+        "rev": "1eef74e20a96e5fac9233446adba100e3605655c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "timohubois",
+        "repo": "nix-templates",
+        "type": "github"
       }
     }
   },

@@ -15,7 +15,7 @@
       let pkgs = pkgsFor system; in {
         default = pkgs.buildEnv {
           name = "php82-env";
-          paths = [ pkgs.php82 pkgs.php82Packages.composer ];
+          paths = [ pkgs.php82 ];
         };
       }
     );
@@ -23,7 +23,10 @@
     devShells = forAllSystems (system:
       let pkgs = pkgsFor system; in {
         default = pkgs.mkShell {
-          buildInputs = [ pkgs.php82 pkgs.php82Packages.composer ];
+          buildInputs = [ 
+            pkgs.php82
+            pkgs.php82Packages.composer
+          ];
           shellHook = ''
             echo "PHP 8.2 development environment"
             php --version

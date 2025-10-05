@@ -3,6 +3,9 @@
 
   # Reference template outputs directly - single source of truth!
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-composer1.url = "github:NixOS/nixpkgs/nixos-20.09";  # Composer 1.10.22 (not available for aarch64-darwin)
+
     # Node.js templates as inputs
     nodejs-10-template.url = "./nodejs/nodejs_10";
     nodejs-12-template.url = "./nodejs/nodejs_12";
@@ -111,20 +114,82 @@
 
       # Main function - creates devShells for all systems automatically
       # Supports: nodejs only, php only, or both combined
-      mkDevShells = { nodejs ? null, php ? null }: {
+      # CLI tools: composer (null=template default, "1"=v1.10.27, "2"=v2.8.x, false=remove), wp-cli (true/false)
+      mkDevShells = { 
+        nodejs ? null, 
+        php ? null, 
+        composer ? null,
+        wp-cli ? false 
+      }: {
         devShells = self.lib.forEachSupportedSystem (system:
           let
+            pkgs = import inputs.nixpkgs { inherit system; };
+            
+            # Composer 1 strategy: prefer nixpkgs (v1.10.22), fallback to custom derivation for aarch64-darwin
+            composer1 = 
+              if system == "aarch64-darwin" then
+                # Custom derivation for aarch64-darwin (nixos-20.09 doesn't support this platform)
+                pkgs.stdenv.mkDerivation {
+                  pname = "composer";
+                  version = "1.10.27";
+                  
+                  src = pkgs.fetchurl {
+                    url = "https://getcomposer.org/download/1.10.27/composer.phar";
+                    sha256 = "sha256-Iw0o+ynzxsB6sjgjkL7zE+Nt4Xhosr0jsuBwVUyuI9I=";
+                  };
+                  
+                  dontUnpack = true;
+                  nativeBuildInputs = [ pkgs.makeWrapper ];
+                  
+                  installPhase = ''
+                    mkdir -p $out/bin
+                    install -D $src $out/libexec/composer/composer.phar
+                    makeWrapper ${pkgs.php}/bin/php $out/bin/composer \
+                      --add-flags "$out/libexec/composer/composer.phar"
+                  '';
+                  
+                  meta = {
+                    description = "Dependency Manager for PHP (v1.10.27)";
+                    homepage = "https://getcomposer.org/";
+                    platforms = pkgs.lib.platforms.all;
+                  };
+                }
+              else
+                # Use nixpkgs Composer 1.10.22 for all other platforms
+                let pkgsComposer1 = import inputs.nixpkgs-composer1 { inherit system; };
+                in pkgsComposer1.phpPackages.composer;
+
             # Get template packages by referencing their devShells
             getNodePackages = version:
               let template = self.lib.nodejsTemplates.${version} or (throw "Unsupported Node.js version: ${version}");
               in template.devShells.${system}.default.buildInputs;
 
-            getPhpPackages = version:
+            getPhpPackagesRaw = version:
               let template = self.lib.phpTemplates.${version} or (throw "Unsupported PHP version: ${version}");
               in template.devShells.${system}.default.buildInputs;
 
+            # Filter composer from PHP packages if we're overriding it
+            filterComposer = pkgs: builtins.filter (pkg: 
+              (builtins.match ".*composer.*" (pkg.pname or pkg.name or "")) == null
+            ) pkgs;
+
+            getPhpPackages = version:
+              if composer != null then filterComposer (getPhpPackagesRaw version)
+              else getPhpPackagesRaw version;
+
             nodePackages = if nodejs != null then getNodePackages nodejs else [];
             phpPackages = if php != null then getPhpPackages php else [];
+
+            # Composer override logic: null = use template default (no override)
+            composerPkg = 
+              if composer == null then []
+              else if composer == "1" && php != null then [ composer1 ]
+              else if composer == "2" && php != null then [ pkgs."php${php}Packages".composer ]
+              else if composer == false then []
+              else [];
+
+            # WP-CLI package
+            wpCliPkg = if wp-cli then [ pkgs.wp-cli ] else [];
 
             # Use primary environment for base shell (nodejs takes precedence)
             baseTemplate = if nodejs != null then
@@ -134,13 +199,18 @@
             else throw "Must specify either nodejs or php version";
 
             baseShell = baseTemplate.devShells.${system}.default;
-            allPackages = nodePackages ++ phpPackages;
+            allPackages = nodePackages ++ phpPackages ++ composerPkg ++ wpCliPkg;
+            
+            # Check if composer is available (from template or override)
+            hasComposer = (composer == null && php != null) || (composer == "1") || (composer == "2");
           in {
             default = baseShell.overrideAttrs (old: {
               buildInputs = allPackages;
               shellHook = ''
-                ${if nodejs != null then ''echo "Node: $(node --version)"'' else ""}
+                ${if nodejs != null then ''echo "Node.js: $(node --version) | npm: $(npm --version)"'' else ""}
                 ${if php != null then ''echo "PHP: $(php --version)"'' else ""}
+                ${if hasComposer then ''echo "Composer: $(composer --version)"'' else ""}
+                ${if wp-cli then ''echo "WP-CLI: $(wp --version)"'' else ""}
               '';
             });
           }

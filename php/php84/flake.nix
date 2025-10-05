@@ -15,7 +15,7 @@
       let pkgs = pkgsFor system; in {
         default = pkgs.buildEnv {
           name = "php84-env";
-          paths = [ pkgs.php84 pkgs.php84Packages.composer ];
+          paths = [ pkgs.php84 ];
         };
       }
     );
@@ -23,7 +23,10 @@
     devShells = forAllSystems (system:
       let pkgs = pkgsFor system; in {
         default = pkgs.mkShell {
-          buildInputs = [ pkgs.php84 pkgs.php84Packages.composer ];
+          buildInputs = [ 
+            pkgs.php84
+            pkgs.php84Packages.composer
+          ];
           shellHook = ''
             echo "PHP 8.4 development environment"
             php --version

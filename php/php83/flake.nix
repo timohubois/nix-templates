@@ -15,7 +15,7 @@
       let pkgs = pkgsFor system; in {
         default = pkgs.buildEnv {
           name = "php83-env";
-          paths = [ pkgs.php83 pkgs.php83Packages.composer ];
+          paths = [ pkgs.php83 ];
         };
       }
     );
@@ -23,7 +23,10 @@
     devShells = forAllSystems (system:
       let pkgs = pkgsFor system; in {
         default = pkgs.mkShell {
-          buildInputs = [ pkgs.php83 pkgs.php83Packages.composer ];
+          buildInputs = [ 
+            pkgs.php83
+            pkgs.php83Packages.composer
+          ];
           shellHook = ''
             echo "PHP 8.3 development environment"
             php --version
