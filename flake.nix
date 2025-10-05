@@ -120,7 +120,12 @@
         php ? null, 
         composer ? null,
         wp-cli ? false 
-      }: {
+      }: 
+      let
+        phpNormalized = if php != null 
+          then builtins.substring 0 2 (builtins.replaceStrings ["."] [""] php)
+          else null;
+      in {
         devShells = self.lib.forEachSupportedSystem (system:
           let
             pkgs = import inputs.nixpkgs { inherit system; };
@@ -165,7 +170,7 @@
               in template.devShells.${system}.default.buildInputs;
 
             getPhpPackagesRaw = version:
-              let template = self.lib.phpTemplates.${version} or (throw "Unsupported PHP version: ${version}");
+              let template = self.lib.phpTemplates.${phpNormalized} or (throw "Unsupported PHP version: ${version}");
               in template.devShells.${system}.default.buildInputs;
 
             # Filter composer from PHP packages if we're overriding it
@@ -178,13 +183,13 @@
               else getPhpPackagesRaw version;
 
             nodePackages = if nodejs != null then getNodePackages nodejs else [];
-            phpPackages = if php != null then getPhpPackages php else [];
+            phpPackages = if phpNormalized != null then getPhpPackages phpNormalized else [];
 
             # Composer override logic: null = use template default (no override)
             composerPkg = 
               if composer == null then []
-              else if composer == "1" && php != null then [ composer1 ]
-              else if composer == "2" && php != null then [ pkgs."php${php}Packages".composer ]
+              else if composer == "1" && phpNormalized != null then [ composer1 ]
+              else if composer == "2" && phpNormalized != null then [ pkgs."php${phpNormalized}Packages".composer ]
               else if composer == false then []
               else [];
 
@@ -194,21 +199,21 @@
             # Use primary environment for base shell (nodejs takes precedence)
             baseTemplate = if nodejs != null then
               self.lib.nodejsTemplates.${nodejs} or (throw "Unsupported Node.js version: ${nodejs}")
-            else if php != null then
-              self.lib.phpTemplates.${php} or (throw "Unsupported PHP version: ${php}")
+            else if phpNormalized != null then
+              self.lib.phpTemplates.${phpNormalized} or (throw "Unsupported PHP version: ${php}")
             else throw "Must specify either nodejs or php version";
 
             baseShell = baseTemplate.devShells.${system}.default;
             allPackages = nodePackages ++ phpPackages ++ composerPkg ++ wpCliPkg;
             
             # Check if composer is available (from template or override)
-            hasComposer = (composer == null && php != null) || (composer == "1") || (composer == "2");
+            hasComposer = (composer == null && phpNormalized != null) || (composer == "1") || (composer == "2");
           in {
             default = baseShell.overrideAttrs (old: {
               buildInputs = allPackages;
               shellHook = ''
                 ${if nodejs != null then ''echo "Node.js: $(node --version) | npm: $(npm --version)"'' else ""}
-                ${if php != null then ''echo "PHP: $(php --version)"'' else ""}
+                ${if phpNormalized != null then ''echo "PHP: $(php --version)"'' else ""}
                 ${if hasComposer then ''echo "Composer: $(composer --version)"'' else ""}
                 ${if wp-cli then ''echo "WP-CLI: $(wp --version)"'' else ""}
               '';

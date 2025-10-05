@@ -93,7 +93,7 @@ templates.lib.mkDevShells {
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `nodejs` | `string \| null` | `null` | Node.js version (includes npm) |
-| `php` | `string \| null` | `null` | PHP version (includes Composer by default) |
+| `php` | `string \| null` | `null` | PHP version: `"82"` or `"8.2"` (major.minor only, patch version from nixpkgs) |
 | `composer` | `string \| false \| null` | `null` | Override Composer version: `null` = use template default (2.8.x), `"1"` = Composer 1 from nixpkgs (1.10.22 for most platforms, 1.10.27 custom for aarch64-darwin), `"2"` = explicit override to 2.8.x, `false` = remove Composer |
 | `wp-cli` | `boolean` | `false` | Include WP-CLI for WordPress development |
 
